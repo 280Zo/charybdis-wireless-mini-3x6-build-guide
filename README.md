@@ -8,6 +8,7 @@
 ## Intro
 
 This repository is a complete build guide for the wireless Charybdis Mini (3x6), a split ergonomic keyboard with a column-staggered keywell and integrated trackball. It covers the full wireless build process and pairs it with a purpose-built ZMK firmware repo designed for easy configuration and customization.
+
 It also provides a simple build guide for the Prospector dongle (see the Prospector Assembly section for more details on what it is, what it does, and how to build it).
 
 Huge thanks to Quentin and BastardKB for sharing this work with the community. If you prefer a kit or assembled keyboard, BastardKB sells both of those for the wired Charybdis, as well as a number of other keyboards and accessories at https://bastardkb.com/.
@@ -144,7 +145,7 @@ This build uses the SuperMini nRF52840. You can find a full list of other compat
 **Battery:** You can use a different battery capacity, but make sure the battery is 3.7V and fits your chosen mounting location. The [ZMK Power Profiler](https://zmk.dev/power-profiler) can help you estimate the mAh you need for your application.
 
 
-**Wires:** The flat flexible cables (FFC) work well and make the wiring clean, but small-gauge wire also works. I've used 23/24 gauge wire out of an old solid core Ethernet cable, along with some JST connectors for testing.
+**Wires:** The flat flexible cables (FFC) work well and make the wiring clean, but small-gauge wire also works. While testing, I used 24 gauge wire out of an old solid core Ethernet cable, along with some JST connectors.
 
 
 ### Fasteners & Hardware
@@ -177,9 +178,7 @@ This build uses the SuperMini nRF52840. You can find a full list of other compat
 | [r3](3d-print/des-key-caps/r3.stl)       | 2 JLC3DP orders   |
 | [thumb](3d-print/des-key-caps/thumb.stl) | 1 JLC3DP orders   |
 
-These are the switches I used, but any MX style switches will work.
-
-I have been using [pseudoku's DES profiled key caps](https://github.com/pseudoku/PseudoMakeMeKeyCapProfiles) in SLS nylon and resin cast for this build, and they have been phenomenal. That said, keycaps are personal preference, so these are optional if you already have caps you like.
+I have been using [pseudoku's DES profiled key caps](https://github.com/pseudoku/PseudoMakeMeKeyCapProfiles) in SLS nylon and resin cast for this build, and they have been phenomenal. That said, keycaps are personal preference, so these are optional if you already have caps you like. Same goes for the key switches. As long as they are MX style they should work.
 
 > [!NOTE]
 > Due to JLC3DP ordering requirements, each key row file is in groups of 10 keys. You can either order extras to get the 12 needed for each row, or use something like the [Z-Butt Artisan keycap creation platform](https://github.com/imyownyear/Z-Butt) from imyownyear to create molds of the first 10 you order, then use that to create an unlimited number of resin copies.
@@ -345,7 +344,11 @@ Do the same with the right half.
 > [!NOTE]
 > The trackball and dongles are generally not supported in the firmware that comes on the controller board. To test those components, flash firmware that supports your specific build. My firmware builds can be found in the firmware section below. There are many options provided by the community as well.
 
-At this point, the keyboard assembly is complete. If you are using a standard dongle, put it in whatever enclosure you’re using after flashing. If you're also building a Prospector dongle, continue with the build steps below.
+At this point, the keyboard assembly is complete.
+
+If you are using a standard dongle, put it in whatever enclosure you’re using after flashing.
+
+If you're also building a Prospector dongle, continue with the build steps below.
 
 
 ## Prospector Assembly (optional)
@@ -355,7 +358,7 @@ At this point, the keyboard assembly is complete. If you are using a standard do
   <img src="images/prospector/zmk-prospector-dongle-builds.png" width="600">
 </p>
 
-The Prospector is an optional ZMK display dongle, extended from [carrefinho's original design](https://github.com/carrefinho/prospector). Rather than connecting the keyboard directly to a host device, the Prospector acts as the central hub, giving you a color status screen that reflects active layer, battery charge, mod key state, and typing speed in real time.
+The Prospector is a ZMK display dongle, extended from [carrefinho's original design](https://github.com/carrefinho/prospector). Rather than connecting the keyboard directly to a host device, the Prospector acts as the central hub, giving you a color status screen that reflects active layer, battery charge, mod key state, and typing speed in real time.
 
 This build extends the original Prospector in two areas:
 
@@ -438,12 +441,12 @@ All models except the original XIAO controller rear cap can be printed without s
 | M3 x 4     | Ambient light sensor (APDS9960 – Generic)           | 2        |
 
 > [!NOTE]
-> Screws install directly into printed holes and form their own threads in the plastic
-> To avoid stripping the hole or cracking the part, tighten by hand until snug
-> Use non-countersunk metric machine screws with a flat surface under the head
+> Screws install directly into printed holes and form their own threads in the plastic. 
+> To avoid stripping the hole or cracking the part, tighten by hand until snug. 
+> Use non-countersunk metric machine screws with a flat surface under the head. 
 
 
-The displays include wire connectors that can be fastened or soldered to the controller board. The sensor board usually does not include wires, but any 28-32 AWG wire works well.
+The displays include wire connectors that can be fastened or soldered to the controller board. The sensor board usually does not include wires, but any 28-32 AWG wire works just fine.
 
 If you are using a generic APDS9960 sensor module, verify the solder jumpers before flashing.
 - **PS jumper:** This jumper connects power to the APDS-9960 sensor and its IR LED. It is normally closed by default with a solder blob. When closed, the IR LED is powered from `VCC`, so the `VL` pin can be left unconnected.
@@ -542,11 +545,11 @@ If using the non-touch screen, press the frame into place.
 Slide the controller board into the controller rear cap. If using the nice!nano version, there are shoulders by the USB port to lock the front in place. The rear of the controller board should be snug against the rear faces to prevent it from moving around.
 
 > [!NOTE]
-> If your nice!nano controller board doesn't fit quite right, adjust the settings in OnShape, and export a printable file that works.
+> If your nice!nano controller board doesn't fit quite right, adjust the dimensions in OnShape, and export a new printable file.
 
 **8. Final Internal Assembly**
 
-Slide the controller rear cap into the body. Go slow, and make sure wires don't get pinched. If using the sensor, I've found it easiest to curl the wires to each side of the controller board and then let the sensor wires run down the middle.
+Slide the controller rear cap into the body. Go slow, and make sure wires don't get pinched. I've found it easiest to curl the wires to each side of the controller board and then let the sensor wires run down the middle.
 
 **9. Functional Hardware Test**
 
