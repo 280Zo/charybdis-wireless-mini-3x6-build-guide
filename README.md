@@ -372,9 +372,6 @@ This build extends the original Prospector in two areas:
 
 If you want the simplest lower-cost build, use a nice!nano-style controller, the non-touch display (SKU: 24382), and no ambient light sensor. If you want automatic brightness, add one of the APDS9960 sensor options. If you prefer the glass front panel, use the touch display (SKU: 27057). The touch and non-touch displays use the same display driver, so display choice does not affect which firmware build you flash.
 
-> [!TIP]
-> My preference is the no-sensor build, with keyboard controls used to adjust display brightness as needed. The APDS9960 works just fine, but unless the dongle is in direct, bright light, it can take tuning to make the automatic brightness curve reach full brightness. Skipping the sensor also means fewer wires from a very small enclosure, which makes final assembly noticeably easier.
-
 Printable enclosure files for the supported combinations are in [`3d-print/prospector`](3d-print/prospector). The folder is split by part type: bodies, bezels, and controller rear caps. Choose files that match your controller board, display type, and ambient light sensor option.
 The pre-made print files for the controller rear cap have fit the majority of my controller boards, but if yours needs a small fit adjustment, use the assembly configuration options in [OnShape](https://cad.onshape.com/documents/1ab8632c0729c14a80991694/w/0a5575e0aa91142d15642877/e/682a60f01e1bc7dffe519c9c) to tune the pocket dimensions for the controller board PCB and USB height. If you're familiar with OnShape, all of the models are freely available to import and customize in any way you'd like.
 
